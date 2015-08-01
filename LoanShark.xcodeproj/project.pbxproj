@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A188DF61B6C71100043DF23 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A188DF51B6C71100043DF23 /* Player.swift */; };
 		1AE64B841B6B633100956E45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64B831B6B633100956E45 /* AppDelegate.swift */; };
 		1AE64B861B6B633100956E45 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64B851B6B633100956E45 /* ViewController.swift */; };
 		1AE64B891B6B633100956E45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AE64B871B6B633100956E45 /* Main.storyboard */; };
 		1AE64B8B1B6B633100956E45 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AE64B8A1B6B633100956E45 /* Images.xcassets */; };
 		1AE64B8E1B6B633100956E45 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AE64B8C1B6B633100956E45 /* LaunchScreen.xib */; };
 		1AE64B9A1B6B633100956E45 /* LoanSharkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64B991B6B633100956E45 /* LoanSharkTests.swift */; };
+		1AE64BA71B6B63C000956E45 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64BA61B6B63C000956E45 /* Client.swift */; };
+		1AE64BA91B6B63D200956E45 /* Loan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64BA81B6B63D200956E45 /* Loan.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A188DF51B6C71100043DF23 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		1AE64B7E1B6B633100956E45 /* LoanShark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoanShark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AE64B821B6B633100956E45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1AE64B831B6B633100956E45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +40,8 @@
 		1AE64B931B6B633100956E45 /* LoanSharkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoanSharkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AE64B981B6B633100956E45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1AE64B991B6B633100956E45 /* LoanSharkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanSharkTests.swift; sourceTree = "<group>"; };
+		1AE64BA61B6B63C000956E45 /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		1AE64BA81B6B63D200956E45 /* Loan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loan.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +83,10 @@
 		1AE64B801B6B633100956E45 /* LoanShark */ = {
 			isa = PBXGroup;
 			children = (
+				1AE64BA51B6B636600956E45 /* Controller */,
+				1AE64BA41B6B636000956E45 /* View */,
+				1AE64BA31B6B635900956E45 /* Model */,
 				1AE64B831B6B633100956E45 /* AppDelegate.swift */,
-				1AE64B851B6B633100956E45 /* ViewController.swift */,
 				1AE64B871B6B633100956E45 /* Main.storyboard */,
 				1AE64B8A1B6B633100956E45 /* Images.xcassets */,
 				1AE64B8C1B6B633100956E45 /* LaunchScreen.xib */,
@@ -110,6 +118,31 @@
 				1AE64B981B6B633100956E45 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1AE64BA31B6B635900956E45 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1AE64BA61B6B63C000956E45 /* Client.swift */,
+				1AE64BA81B6B63D200956E45 /* Loan.swift */,
+				1A188DF51B6C71100043DF23 /* Player.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		1AE64BA41B6B636000956E45 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		1AE64BA51B6B636600956E45 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1AE64B851B6B633100956E45 /* ViewController.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +246,9 @@
 			files = (
 				1AE64B861B6B633100956E45 /* ViewController.swift in Sources */,
 				1AE64B841B6B633100956E45 /* AppDelegate.swift in Sources */,
+				1AE64BA71B6B63C000956E45 /* Client.swift in Sources */,
+				1A188DF61B6C71100043DF23 /* Player.swift in Sources */,
+				1AE64BA91B6B63D200956E45 /* Loan.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,6 +444,7 @@
 				1AE64B9F1B6B633100956E45 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1AE64BA01B6B633100956E45 /* Build configuration list for PBXNativeTarget "LoanSharkTests" */ = {
 			isa = XCConfigurationList;
@@ -416,6 +453,7 @@
 				1AE64BA21B6B633100956E45 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
