@@ -5,7 +5,6 @@
 //  Created by James Kim on 7/31/15.
 //
 //
-//james is stupid
 
 import Foundation
 
