@@ -27,6 +27,10 @@ class Player : NSObject{
         balance += change
     }
     
+    func playGame(){
+        
+    }
+    
     
 
 }

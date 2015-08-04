@@ -10,6 +10,7 @@
 		1A188DF61B6C71100043DF23 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A188DF51B6C71100043DF23 /* Player.swift */; };
 		1A188DFC1B7083440043DF23 /* Portfolio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A188DFB1B7083440043DF23 /* Portfolio.swift */; };
 		1AC602DF1B7101D500409106 /* CommandControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC602DE1B7101D500409106 /* CommandControl.swift */; };
+		1AC602E11B7105CB00409106 /* Enforcer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC602E01B7105CB00409106 /* Enforcer.swift */; };
 		1AE64B841B6B633100956E45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64B831B6B633100956E45 /* AppDelegate.swift */; };
 		1AE64B861B6B633100956E45 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64B851B6B633100956E45 /* ViewController.swift */; };
 		1AE64B891B6B633100956E45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AE64B871B6B633100956E45 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 		1A188DF51B6C71100043DF23 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		1A188DFB1B7083440043DF23 /* Portfolio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Portfolio.swift; sourceTree = "<group>"; };
 		1AC602DE1B7101D500409106 /* CommandControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandControl.swift; sourceTree = "<group>"; };
+		1AC602E01B7105CB00409106 /* Enforcer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enforcer.swift; sourceTree = "<group>"; };
 		1AE64B7E1B6B633100956E45 /* LoanShark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoanShark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AE64B821B6B633100956E45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1AE64B831B6B633100956E45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				1AE64BA81B6B63D200956E45 /* Loan.swift */,
 				1A188DF51B6C71100043DF23 /* Player.swift */,
 				1A188DFB1B7083440043DF23 /* Portfolio.swift */,
+				1AC602E01B7105CB00409106 /* Enforcer.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 				1AE64B841B6B633100956E45 /* AppDelegate.swift in Sources */,
 				1AE64BA71B6B63C000956E45 /* Client.swift in Sources */,
 				1A188DF61B6C71100043DF23 /* Player.swift in Sources */,
+				1AC602E11B7105CB00409106 /* Enforcer.swift in Sources */,
 				1AE64BA91B6B63D200956E45 /* Loan.swift in Sources */,
 				1AC602DF1B7101D500409106 /* CommandControl.swift in Sources */,
 			);

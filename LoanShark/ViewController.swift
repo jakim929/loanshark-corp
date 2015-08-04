@@ -12,17 +12,18 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        while true {
-            
-        }
+        var player = Player(name: "James", true)
         
     }
 
     @IBOutlet weak var consoleOutput: UILabel!
     
-    @IBOutlet weak var ConsoleField: UITextField!
+    @IBOutlet weak var consoleField: UITextField!
 
+    @IBAction func sendCommand(sender: AnyObject) {
+        var command = consoleField.text
+        
+    }
     
     
     override func didReceiveMemoryWarning() {

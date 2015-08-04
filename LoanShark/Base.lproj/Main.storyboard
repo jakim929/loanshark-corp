@@ -24,21 +24,41 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o6E-PR-hSH">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o6E-PR-hSH">
                                 <rect key="frame" x="125" y="383" width="351" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Rgp-It-aKA"/>
+                                    <constraint firstAttribute="width" constant="351" id="Yvd-iE-J1p"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="consoleField:" destination="vXZ-lx-hvc" eventType="editingDidEnd" id="rjn-yZ-68M"/>
                                 </connections>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g93-Md-nPg">
+                                <rect key="frame" x="439" y="450" width="37" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ZUL-ib-b13"/>
+                                </constraints>
+                                <state key="normal" title="Enter">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendCommand:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="27v-90-u3Y"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="lPO-t8-vbj" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="98" id="10v-rx-70U"/>
-                            <constraint firstItem="lPO-t8-vbj" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="L2l-2e-gLN"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="lPO-t8-vbj" secondAttribute="bottom" constant="315" id="Nab-qY-nTM"/>
-                            <constraint firstItem="lPO-t8-vbj" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" symbolic="YES" id="b2v-Lm-1Gi"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="g93-Md-nPg" secondAttribute="bottom" constant="120" id="G6m-03-626"/>
+                            <constraint firstItem="lPO-t8-vbj" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="LQN-AF-nLI"/>
+                            <constraint firstItem="g93-Md-nPg" firstAttribute="top" secondItem="o6E-PR-hSH" secondAttribute="bottom" constant="37" id="QLD-77-1fu"/>
+                            <constraint firstItem="o6E-PR-hSH" firstAttribute="centerX" secondItem="lPO-t8-vbj" secondAttribute="centerX" id="RdJ-ck-WVj"/>
+                            <constraint firstItem="o6E-PR-hSH" firstAttribute="top" secondItem="lPO-t8-vbj" secondAttribute="bottom" constant="98" id="V59-Ft-Y4g"/>
+                            <constraint firstItem="lPO-t8-vbj" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" symbolic="YES" id="bU9-42-H1C"/>
+                            <constraint firstItem="lPO-t8-vbj" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="98" id="dte-P9-Ffi"/>
+                            <constraint firstItem="g93-Md-nPg" firstAttribute="trailing" secondItem="o6E-PR-hSH" secondAttribute="trailing" id="lCg-GU-Tpn"/>
                         </constraints>
                     </view>
                     <connections>
