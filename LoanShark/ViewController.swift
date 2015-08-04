@@ -17,6 +17,8 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var consoleOutput: UILabel!
     
+    @IBAction func consoleField(sender: AnyObject) {
+    }
     
     
     override func didReceiveMemoryWarning() {
