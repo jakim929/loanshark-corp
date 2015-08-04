@@ -13,15 +13,41 @@ class Enforcer : NSObject{
     
     var name : String
     var gender : Bool
-    var Strength : Int = 0
-    var Invisibility : Int = 0
-    
+    var strength : Int = 0
+    var invisibility : Int = 0
+    var price : Int = 0
+    var numberOfRaids : Int = 0
     
     
     init(name : String, gender : Bool) {
         self.name = name
         self.gender = gender
     }
+   
+    //getters
     
+    func getName() -> String{
+        return self.name
+    }
+    func getGender() -> String{
+        return self.gender
+    }
+    func getStrength() -> Int{
+        return self.strength
+    }
+    func getInvisibility() -> Int{
+        return self.invisibility
+    }
+    func getPrice() -> Int{
+        return self.price
+    }
+    func getNumberOfRaids() -> Int{
+        return self.numberOfRaids
+    }
+    func updateRaids(numberOfRaids : Int){
+        numberOfRaids = numberOfRaids - 1
+    }
 }
-    
+
+
+
