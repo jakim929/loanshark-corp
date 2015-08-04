@@ -23,6 +23,10 @@ class Player : NSObject{
         self.gender = gender
     }
     
+    func changeBalance(change : Int){
+        balance += change
+    }
+    
     
 
 }

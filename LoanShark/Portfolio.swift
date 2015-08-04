@@ -35,7 +35,9 @@ class Portfolio : NSObject {
     
     //Suggests new offers
     func negotiateLoan(){
-        
+        while loan.getLoanStatus() == 0{
+            
+        }
     }
     
     
