@@ -15,8 +15,10 @@ class Player : NSObject{
     var respectability : Int = 0
     var thugness : Int = 0
     var balance : Int = 1000
+    var clientList = [Client]()
     var loanLedger = [Loan]()
-    var openLoans = [Loan]()
+    var enforcers = [Loan]()
+    var portfolio : Portfolio
     
     init(name : String, gender : Bool) {
         self.name = name

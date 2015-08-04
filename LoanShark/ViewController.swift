@@ -9,11 +9,11 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    var james = Player(name: "James", gender: true)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var currentGame : Game
         
         consoleOutput.text = "The game has started and you have created a character named James, and he is of the gender male."
         
@@ -26,7 +26,7 @@ class ViewController: UIViewController {
 
     @IBAction func sendCommand(sender: AnyObject) {
         var command = consoleField.text
-        consoleOutput.text = james.processCommand(command)
+        consoleOutput.text = currentGame.processCommand(command)
         
     }
     
