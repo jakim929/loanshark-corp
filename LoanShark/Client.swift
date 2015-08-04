@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Client{
+class Client : NSObject{
     
     var clientNumber : Int
     var name : String
@@ -30,6 +30,37 @@ class Client{
         self.creditRating = creditRating
         self.netWorth = netWorth
     }
+    
+//Getters
+    
+    func getClientNumber() -> Int{
+        return self.clientNumber
+    }
+    func getName() -> String{
+        return self.name
+    }
+    func getAge() -> Int{
+        return self.age
+    }
+    func getOccupation() -> String{
+        return self.occupation
+    }
+    func getLoanHistory() -> [Loan]{
+        return self.loanHistory
+    }
+    func getCurrentLoan() -> Loan{
+        return self.currentLoan
+    }
+    func getCreditRating() -> Int{
+        return self.creditRating
+    }
+    func getAnxietyRating() -> Int{  //Fix Later
+        return self.anxietyRating
+    }
+    func getNetWorth() -> Int{
+        return self.netWorth
+    }
+    
     
     func repayLoan(paymentAmount : Int){
         self.currentLoan.updateRepayment(paymentAmount)
