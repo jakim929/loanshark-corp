@@ -31,7 +31,7 @@ class Player : NSObject{
         
         if command == "test"{
             return "The command processing is working!"
-        }else if{
+        }else{
             return "No such command exists"
         }
         
