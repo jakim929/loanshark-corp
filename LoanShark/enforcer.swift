@@ -9,12 +9,13 @@
 import Foundation
 
 
-    class enforcer : NSObject{
+    class Enforcer : NSObject{
         
         var name : String
         var gender : Bool
         var Strength : Int = 0
         var Invisibility : Int = 0
+        
         
         
         init(name : String, gender : Bool) {

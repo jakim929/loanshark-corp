@@ -15,6 +15,7 @@ class Client : NSObject{
     var name : String
     var age : Int
     var occupation : String
+    var background : String//background history check (brief discription)
     var loanHistory = [Loan]()
     var currentLoan : Loan
     var creditRating : Int
@@ -22,7 +23,7 @@ class Client : NSObject{
     var netWorth : Int
     //var personality : Int
     
-    init(clientNumber : Int, name : String, age : Int, occupation : String, currentLoan : Loan, creditRating : Int, netWorth : Int){
+    init(clientNumber : Int, name : String, age : Int, occupation : String, currentLoan : Loan, creditRating : Int, netWorth : Int, background : String){
         self.clientNumber = clientNumber
         self.name = name
         self.age = age
@@ -30,6 +31,7 @@ class Client : NSObject{
         self.currentLoan = currentLoan
         self.creditRating = creditRating
         self.netWorth = netWorth
+        self.background = background
     }
     
 //Getters
@@ -60,6 +62,9 @@ class Client : NSObject{
     }
     func getNetWorth() -> Int{
         return self.netWorth
+    }
+    func getBackground() -> String{
+        return self.background
     }
     
     
