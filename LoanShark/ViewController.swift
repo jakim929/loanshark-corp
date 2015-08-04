@@ -10,19 +10,23 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var james = Player(name: "James", gender: true)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        var player = Player(name: "James", gender: true)
-        consoleOutput.text = "You have created a beast named James, and he is of the gender male"
+        
+        consoleOutput.text = "The game has started and you have created a character named James, and he is of the gender male."
+        
         
     }
 
-    @IBOutlet weak var consoleOutput: UILabel!
-    
+
+    @IBOutlet weak var consoleOutput: UITextView!
     @IBOutlet weak var consoleField: UITextField!
 
     @IBAction func sendCommand(sender: AnyObject) {
         var command = consoleField.text
+        consoleOutput.text = james.processCommand(command)
         
     }
     

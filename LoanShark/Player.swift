@@ -27,7 +27,13 @@ class Player : NSObject{
         balance += change
     }
     
-    func playGame(){
+    func processCommand(command : String) -> String{
+        
+        if command == "test"{
+            return "The command processing is working!"
+        }else if{
+            return "No such command exists"
+        }
         
     }
     
