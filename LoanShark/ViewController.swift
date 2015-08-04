@@ -12,13 +12,17 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        while true {
+            
+        }
+        
     }
 
     @IBOutlet weak var consoleOutput: UILabel!
     
-    @IBAction func consoleField(sender: AnyObject) {
-    }
+    @IBOutlet weak var ConsoleField: UITextField!
+
     
     
     override func didReceiveMemoryWarning() {
