@@ -17,6 +17,7 @@
 		1AE64B9A1B6B633100956E45 /* LoanSharkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64B991B6B633100956E45 /* LoanSharkTests.swift */; };
 		1AE64BA71B6B63C000956E45 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64BA61B6B63C000956E45 /* Client.swift */; };
 		1AE64BA91B6B63D200956E45 /* Loan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64BA81B6B63D200956E45 /* Loan.swift */; };
+		B4EE64371B71009D0096F365 /* enforcer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EE64361B71009D0096F365 /* enforcer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		1AE64B991B6B633100956E45 /* LoanSharkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanSharkTests.swift; sourceTree = "<group>"; };
 		1AE64BA61B6B63C000956E45 /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		1AE64BA81B6B63D200956E45 /* Loan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loan.swift; sourceTree = "<group>"; };
+		B4EE64361B71009D0096F365 /* enforcer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = enforcer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 				1AE64BA81B6B63D200956E45 /* Loan.swift */,
 				1A188DF51B6C71100043DF23 /* Player.swift */,
 				1A188DFB1B7083440043DF23 /* Portfolio.swift */,
+				B4EE64361B71009D0096F365 /* enforcer.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 				1AE64B861B6B633100956E45 /* ViewController.swift in Sources */,
 				1AE64B841B6B633100956E45 /* AppDelegate.swift in Sources */,
 				1AE64BA71B6B63C000956E45 /* Client.swift in Sources */,
+				B4EE64371B71009D0096F365 /* enforcer.swift in Sources */,
 				1A188DF61B6C71100043DF23 /* Player.swift in Sources */,
 				1AE64BA91B6B63D200956E45 /* Loan.swift in Sources */,
 			);
