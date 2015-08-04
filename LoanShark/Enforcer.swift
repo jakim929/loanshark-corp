@@ -29,7 +29,7 @@ class Enforcer : NSObject{
     func getName() -> String{
         return self.name
     }
-    func getGender() -> String{
+    func getGender() -> Bool{
         return self.gender
     }
     func getStrength() -> Int{
@@ -45,7 +45,7 @@ class Enforcer : NSObject{
         return self.numberOfRaids
     }
     func updateRaids(numberOfRaids : Int){
-        numberOfRaids = numberOfRaids - 1
+        self.numberOfRaids = numberOfRaids - 1
     }
 }
 
