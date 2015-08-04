@@ -12,7 +12,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        var player = Player(name: "James", true)
+        var player = Player(name: "James", gender: true)
+        consoleOutput.text = "You have created a beast named James, and he is of the gender male"
         
     }
 
