@@ -10,13 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    var currentGame : Game = Game()
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        var currentGame : Game
-        
-        consoleOutput.text = "The game has started and you have created a character named James, and he is of the gender male."
-        
         
     }
 
@@ -24,11 +22,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var consoleOutput: UITextView!
     @IBOutlet weak var consoleField: UITextField!
 
-    @IBAction func sendCommand(sender: AnyObject) {
-        var command = consoleField.text
-        consoleOutput.text = currentGame.processCommand(command)
-        
+    @IBAction func sendInput(sender: AnyObject) {
+        var input = consoleField.text
+        consoleOutput.text = currentGame.directInput(input)
     }
+    
     
     
     override func didReceiveMemoryWarning() {
