@@ -10,7 +10,7 @@ import Foundation
 
 class Loan : NSObject {
     
-    var client : Client
+    //var client : Client
     var loanStatus : Int = 0 // 0 = pre-negotiation, 1 = negotiated/accepted/ongoing, 2 = paid, 3 = escaped, 4 = defaulted, 5 = rejected
     var loanAmount : Int
     var loanDuration : Int
@@ -18,19 +18,30 @@ class Loan : NSObject {
     var compoundPeriod : Int = 0 // how often the interest is applied
     var currentRepaid = 0
     
+    override init(){
+        //client = Client()
+        loanAmount = 0
+        loanDuration = 0
+    }
     
-    init(client : Client, loanAmount : Int, interestRate : Float, loanDuration : Int,  compoundPeriod : Int){
-        self.client = client
+    init(loanAmount : Int, interestRate : Float, loanDuration : Int,  compoundPeriod : Int){
+        //self.client = client
         self.loanAmount = loanAmount
         self.loanDuration = loanDuration
         self.interestRate = interestRate
         self.compoundPeriod = compoundPeriod
     }
     
-    //Getters
-    func getClient() -> Client{
-        return self.client
+    //Total payment expected after the loan duration
+    var totalPayment : Int {
+        return Int(Float(loanAmount)*(powf(1.0 + interestRate, Float(loanDuration)/Float(compoundPeriod))))
     }
+
+    
+    //Getters
+    /*func getClient() -> Client{
+        return self.client
+    }*/
     func getLoanStatus() -> Int{
         return self.loanStatus
     }
@@ -50,6 +61,8 @@ class Loan : NSObject {
         return self.currentRepaid
     }
     
+    
+    
     //Grouped Setters
     func confirmNegotiation(loanAmount : Int, interestRate : Float, loanDuration : Int, compoundPeriod : Int){
         self.loanAmount = loanAmount
@@ -66,15 +79,20 @@ class Loan : NSObject {
     }
 
     
-    //Total payment expected after the loan duration
-    var totalPayment : Int {
-        return Int(Float(loanAmount)*(powf(1.0 + interestRate, Float(loanDuration)/Float(compoundPeriod))))
-    }
     
     //Adds repaymentAmount to currentRepaid and returns remainder left to pay
     func updateRepayment(repaymentAmount : Int) -> Int{
         currentRepaid += repaymentAmount
         return totalPayment - currentRepaid
+    }
+    
+    func returnTotalPayment(amount : Int, rate : Float, duration : Int, period : Int) -> Int{
+        return Int(Float(amount)*(powf(1.0 + rate, Float(duration)/Float(period))))
+
+    }
+    
+    func returnInitialNeg()->(Int, Float, Int, Int){
+        return (loanAmount, interestRate, loanDuration, compoundPeriod)
     }
     
     func approveLoan(approval : Bool) -> Loan{

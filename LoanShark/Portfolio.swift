@@ -12,6 +12,8 @@ class Portfolio : NSObject {
     
     var client : Client
     var loan : Loan
+    var offerMatched : Bool = false
+    var currentStatus : Int = 1
     
     //Negotiation Values - Made it an tuple array to keep data of past negotiation values for this one portfolio
     var negotiations : [(Int, Float, Int, Int)] = [] //Tuple = (Amount, Interest Rate, Duration, Compound Period)
@@ -21,6 +23,14 @@ class Portfolio : NSObject {
         self.loan = loan
         
         self.negotiations.append((loan.getLoanAmount(),loan.getInterestRate(),loan.getLoanDuration(),loan.getCompoundPeriod()))
+    }
+    
+    var latestOffer : (Int, Float, Int, Int){
+        return negotiations[negotiations.count - 1]
+    }
+    
+    var currentLoanStatus : Int {
+        return loan.loanStatus
     }
     
     //Accepts loan and accepts the loan with currently accepted values
@@ -33,12 +43,21 @@ class Portfolio : NSObject {
         loan.approveLoan(false)
     }
     
-    //Suggests new offers
-    func negotiateLoan(){
-        while loan.getLoanStatus() == 0{
-            
-        }
+    func changeStatus(status : Int){
+        currentStatus = status
+        
     }
+    
+    func addNegotiation(a: (Int, Float, Int, Int)){
+        negotiations += [a]
+    }
+    
+    func offerToClient(offer : (Int, Float, Int, Int)) -> (Int, Float, Int, Int)?{
+        return client.negotiateOffer(offer)
+    }
+    
+    
+
     
     
     

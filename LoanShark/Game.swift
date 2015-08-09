@@ -19,6 +19,7 @@ class Game : NSObject {
     var inputCount : Int = 0
     var inputExpected : Int = 0
     var inputArray : [String] = [String]()
+    var negotiationFinished : Bool = false
     
     override init() {
         player = Player()
@@ -38,22 +39,46 @@ class Game : NSObject {
         }
     }
     
+    func processNegotiation(negotiation : (Int,Float,Int,Int)){
+        
+    }
+    
+    func acceptNegotiation() -> Loan{
+        return player.acceptOffer()
+    }
     
     func processCommand(command : String)->String{
         var returnValue = ""
         if command == "create"{
             player.changeName(self.inputArray[0])
             player.changeGender(toBool(self.inputArray[1])!)
-            returnValue = "Your character has been created with the name of \(player.name) and gender \(player.gender)"
-        }
-        if command == "james"{
-            returnValue = "James is awesome"
+            returnValue = "Your character has been created with the name of \(player.name) and gender \(convertGender(player.gender))"
+            
+            
+        }else if command == "james"{
+            player.changeName("James Kim")
+            player.changeGender(true)
+            player.changeBalance(1000000)
+            returnValue = "Your character has been created with the name of James and gender of male. Full Options available"
+            
+            
+        }else if command == "client"{
+            return createRandomClient()
+            
+        }else if command == "newoffer"{
+            var portfolio = createPortfolio(player.currentClient.proposeLoan())
+            return "-Loan Proposed-\n" + convertOffer(portfolio.latestOffer)
         
+        }else if command == ""{
+            returnValue = "Please enter a command"
         }
-        if returnValue == ""{
+        
+        if returnValue == "" {
             returnValue = "No such command exists"
         }
-        self.currentCommand = "gaa"
+        receivingCommand = true
+        inputCount = 0
+        inputExpected = 0
         return returnValue
     }
     
@@ -84,10 +109,6 @@ class Game : NSObject {
         }else if inputCount <= inputExpected{
             self.inputArray.append(currentInput)
             inputCount++
-            
-        }else{
-            receivingCommand = true
-            inputCount = 0
         }
     }
     
@@ -101,6 +122,23 @@ class Game : NSObject {
         
     }
     
+    func handleNegotiation(incomingInput : (Int, Float, Int, Int)) -> Portfolio{
+    
+        return player.negotiateOffer(incomingInput)
+        
+        
+    }
+    
+    func createRandomClient()->String{
+        player.clientList.append(Client(name: Random.returnRandomName(), creditRating: Random.simpleRandom(1 , max: 4), netWorth: Random.simpleRandomScaled(1000, max: 1000000, scale: 1000)))
+        return player.currentClient.clientDescription
+    }
+    
+    func createPortfolio(loan : Loan)->Portfolio{
+        player.addPortfolio(Portfolio(client: player.currentClient, loan: loan))
+        return player.currentPortfolio
+    }
+    
     func toBool(line : String) -> Bool? {
         switch line {
         case "True", "true", "yes", "1", "male", "man", "Male", "Man":
@@ -111,11 +149,19 @@ class Game : NSObject {
             return nil
         }
     }
-
     
-
-
+    func convertGender(gender : Bool)->String{
+        if gender == true{
+            return "Male"
+        }else{
+            return "Female"
+        }
+        
+    }
     
+    func convertOffer(offer : (Int, Float, Int, Int))->String{
+        return "Amount: \(offer.0)\nRate: \(offer.1)\nDuration: \(offer.2)\nPeriod: \(offer.3)"
+    }
 
     
     
