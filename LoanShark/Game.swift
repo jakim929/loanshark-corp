@@ -42,11 +42,11 @@ class Game : NSObject {
     func processNegotiation(negotiation : (Int,Float,Int,Int)){
         
     }
-    
+/*
     func acceptNegotiation() -> Loan{
         return player.acceptOffer()
     }
-    
+*/
     func processCommand(command : String)->String{
         var returnValue = ""
         if command == "create"{
@@ -126,7 +126,6 @@ class Game : NSObject {
     
         return player.negotiateOffer(incomingInput)
         
-        
     }
     
     func createRandomClient()->String{
@@ -134,34 +133,16 @@ class Game : NSObject {
         return player.currentClient.clientDescription
     }
     
+    
+    
     func createPortfolio(loan : Loan)->Portfolio{
         player.addPortfolio(Portfolio(client: player.currentClient, loan: loan))
         return player.currentPortfolio
     }
     
-    func toBool(line : String) -> Bool? {
-        switch line {
-        case "True", "true", "yes", "1", "male", "man", "Male", "Man":
-            return true
-        case "False", "false", "no", "0", "female", "woman", "Female", "Woman":
-            return false
-        default:
-            return nil
-        }
-    }
+
     
-    func convertGender(gender : Bool)->String{
-        if gender == true{
-            return "Male"
-        }else{
-            return "Female"
-        }
-        
-    }
-    
-    func convertOffer(offer : (Int, Float, Int, Int))->String{
-        return "Amount: \(offer.0)\nRate: \(offer.1)\nDuration: \(offer.2)\nPeriod: \(offer.3)"
-    }
+
 
     
     

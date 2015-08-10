@@ -91,9 +91,9 @@ class Client : NSObject {
     
     func proposeLoan()->Loan{
         
-        let amount = Random.simpleRandomScaled(1000, max: 100000, scale: 1000)
-        let rate = Random.simpleRandomFloat(0.1, max: 0.4)
-        let duration = Random.simpleRandom(50, max : 100)
+        let amount = simpleRandomScaled(1000, 100000, 1000)
+        let rate = simpleRandomFloat(0.1, 0.4)
+        let duration = simpleRandom(50, 100)
         let period = 10
         currentLoan = Loan(loanAmount: amount, interestRate: rate, loanDuration: duration, compoundPeriod: period)
         return currentLoan
@@ -104,9 +104,9 @@ class Client : NSObject {
         var negTotal = currentLoan.returnTotalPayment(a.0, rate: a.1, duration: a.2, period: a.3)
         var returnOffer : (Int, Float, Int, Int)
         
-        if evaluateOffer(a) == 1{
+        if evaluateOffer(a) == .Accepted{
             returnOffer = a
-        }else if evaluateOffer(a) == 3{
+        }else if evaluateOffer(a) == .Rejected{
             rejectOffer()
             return nil // nil when rejected
         }else{
@@ -117,14 +117,14 @@ class Client : NSObject {
         
     }
     
-    func evaluateOffer(a : (Int,Float,Int,Int))->Int{       //1: Accept, 2: Keep Negotiating, 3: Reject
-        var negTotal = currentLoan.returnTotalPayment(a.0, rate: a.1, duration: a.2, period: a.3)
+    func evaluateOffer(a : (Int,Float,Int,Int))->NegStatus{
+        var negTotal = returnTotalPayment(a.0, a.1, a.2, a.3)
         if currentLoan.totalPayment >= negTotal{
-            return 1
+            return .Accepted
         }else if currentLoan.totalPayment * 2 <= negTotal{
-            return 3
+            return .Rejected
         }else{
-            return 2
+            return .Negotiated
         }
         
         

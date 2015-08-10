@@ -11,7 +11,7 @@ import Foundation
 class Loan : NSObject {
     
     //var client : Client
-    var loanStatus : Int = 0 // 0 = pre-negotiation, 1 = negotiated/accepted/ongoing, 2 = paid, 3 = escaped, 4 = defaulted, 5 = rejected
+    var loanStatus = Status.Created //enum defined in Basic.swift
     var loanAmount : Int
     var loanDuration : Int
     var interestRate : Float = 0
@@ -42,7 +42,7 @@ class Loan : NSObject {
     /*func getClient() -> Client{
         return self.client
     }*/
-    func getLoanStatus() -> Int{
+    func getLoanStatus() -> Status{
         return self.loanStatus
     }
     func getLoanAmount() -> Int{
@@ -76,6 +76,8 @@ class Loan : NSObject {
         self.interestRate = negotiation.1
         self.loanDuration = negotiation.2
         self.compoundPeriod = negotiation.3
+        approveLoan(true)
+        
     }
 
     
@@ -97,9 +99,9 @@ class Loan : NSObject {
     
     func approveLoan(approval : Bool) -> Loan{
         if approval == true {
-            self.loanStatus = 1
+            self.loanStatus = .Ongoing
         }else{
-            self.loanStatus = 5
+            self.loanStatus = .Rejected
         }
         return self
     }

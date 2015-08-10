@@ -19,7 +19,7 @@ public class Player : NSObject{
     var balance : Int = 1000
     var clientList = [Client]()
     var loanLedger = [Loan]()
-    var enforcers = [Loan]()
+    var enforcers = [Enforcer]()
     var portfolios = [Portfolio]()
     
     
@@ -50,42 +50,28 @@ public class Player : NSObject{
         balance += change
     }
     
-    func negotiateOffer(offer : (Int, Float, Int, Int))->Portfolio{ //status (the last integer) 1: Negotiated, 2: Accepted, 3: Rejected
-        var receivedOffer : (Int, Float, Int, Int)
-        currentPortfolio.addNegotiation(offer)
-        if let receivedOffer = currentPortfolio.offerToClient(offer){
-            
-            currentPortfolio.addNegotiation(receivedOffer)
-            currentPortfolio.changeStatus(1)
-
-            if compareOffer(receivedOffer, offer2: offer) == true {
-                currentPortfolio.offerMatched = true
-                acceptOffer()
-                currentPortfolio.changeStatus(2)
-            }
-            
-        }else{
-            currentPortfolio.changeStatus(3)
+    func negotiateOffer(offer : (Int, Float, Int, Int)?)->Portfolio{
+        var status = currentPortfolio.processOffer(offer)
+        
+        if status == .Accepted{
+            addToLedger(currentPortfolio)
         }
         return currentPortfolio
         
     }
     
-    func compareOffer(offer1 : (Int, Float, Int, Int), offer2 : (Int, Float, Int, Int))->Bool{
-        var returnBool = false
-        if (offer1.0 == offer2.0 && offer1.1 == offer2.1 && offer1.2 == offer2.2 && offer1.3 == offer2.3){
-            returnBool = true
-        }
-        return returnBool
-        
-    }
+
     
     func addPortfolio(portfolio : Portfolio){
         portfolios.append(portfolio)
     }
-    
+/*
     func acceptOffer()->Loan{
         return currentPortfolio.acceptLoan()
+    }
+*/
+    func addToLedger(portfolio : Portfolio){
+        loanLedger.append(portfolio.loan)
     }
     
     
