@@ -31,6 +31,14 @@ public class Player : NSObject{
         self.gender = gender
     }
     
+    func setPlayer(name : String, gender : Bool, respectability : Int, thugness : Int, balance : Int){
+        self.name = name
+        self.gender = gender
+        self.respectability = respectability
+        self.thugness = thugness
+        self.balance = balance
+    }
+    
     var currentPortfolio : Portfolio{
         return portfolios[portfolios.count-1]
     }

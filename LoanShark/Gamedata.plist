@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>clientList</key>
+	<array>
+		<dict>
+			<key>clientNumber</key>
+			<integer>0</integer>
+			<key>name</key>
+			<string></string>
+			<key>creditRating</key>
+			<integer>0</integer>
+			<key>netWorth</key>
+			<integer>0</integer>
+			<key>pastExperience</key>
+			<integer>0</integer>
+			<key>anxietyRating</key>
+			<integer>0</integer>
+			<key>loanList</key>
+			<array>
+				<dict>
+					<key>loanNumber</key>
+					<integer>0</integer>
+					<key>loanStatus</key>
+					<integer>0</integer>
+					<key>loanAmount</key>
+					<integer>0</integer>
+					<key>interestRate</key>
+					<integer>0</integer>
+					<key>loanDuration</key>
+					<integer>0</integer>
+					<key>compoundPeriod</key>
+					<integer>0</integer>
+					<key>currentRepaid</key>
+					<integer>0</integer>
+					<key>startTime</key>
+					<integer>0</integer>
+				</dict>
+			</array>
+		</dict>
+	</array>
+	<key>playerData</key>
+	<dict>
+		<key>name</key>
+		<string>James Kim</string>
+		<key>gender</key>
+		<true/>
+		<key>respectability</key>
+		<integer>100</integer>
+		<key>thugness</key>
+		<integer>100</integer>
+		<key>balance</key>
+		<integer>10000000</integer>
+	</dict>
+</dict>
+</plist>

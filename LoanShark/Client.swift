@@ -13,8 +13,7 @@ class Client : NSObject {
     var clientNumber : Int = 1
     var name : String
     //var age : Int
-    var loanHistory = [Loan]()
-    var currentLoan = Loan()
+    var loanList = [Loan]()
     var creditRating : Int
     var netWorth : Int
     var pastExperience : Int = 0
@@ -33,6 +32,20 @@ class Client : NSObject {
         self.creditRating = creditRating
         self.netWorth = netWorth
 
+    }
+    
+    init(clientNumber : Int, name : String, creditRating : Int, netWorth : Int, pastExperience : Int, anxietyRating : Int, loanList : [Loan]){
+        self.clientNumber = clientNumber
+        self.name = name
+        self.creditRating = creditRating
+        self.netWorth = netWorth
+        self.pastExperience = pastExperience
+        self.anxietyRating = anxietyRating
+        self.loanList = loanList
+    }
+    
+    var currentLoan : Loan{
+        return loanList[loanList.count - 1]
     }
     
     var clientDescription : String{
@@ -63,12 +76,12 @@ class Client : NSObject {
         return self.occupation
     }
 */
-    func getLoanHistory() -> [Loan]{
-        return self.loanHistory
+    func getLoanList() -> [Loan]{
+        return self.loanList
     }
-    func getCurrentLoan() -> Loan{
+/*    func getCurrentLoan() -> Loan{
         return self.currentLoan
-    }
+    }*/
     func getCreditRating() -> Int{
         return self.creditRating
     }
@@ -95,7 +108,7 @@ class Client : NSObject {
         let rate = simpleRandomFloat(0.1, 0.4)
         let duration = simpleRandom(50, 100)
         let period = 10
-        currentLoan = Loan(loanAmount: amount, interestRate: rate, loanDuration: duration, compoundPeriod: period)
+        loanList.append(Loan(loanAmount: amount, interestRate: rate, loanDuration: duration, compoundPeriod: period))
         return currentLoan
     }
     

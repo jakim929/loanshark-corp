@@ -12,16 +12,32 @@ class Loan : NSObject {
     
     //var client : Client
     var loanStatus = Status.Created //enum defined in Basic.swift
+    var loanNumber : Int
     var loanAmount : Int
     var loanDuration : Int
     var interestRate : Float = 0
     var compoundPeriod : Int = 0 // how often the interest is applied
     var currentRepaid = 0
     
+    private var startTime : CFAbsoluteTime
+    
     override init(){
         //client = Client()
         loanAmount = 0
         loanDuration = 0
+    }
+    
+    init(loanNumber : Int, loanStatus : Status, loanAmount: Int, interestRate : Float, loanDuration : Int, compoundPeriod : Int, currentRepaid : Int, startTime : CFAbsoluteTime){
+        
+        self.loanNumber = loanNumber
+        self.loanStatus = loanStatus
+        self.loanAmount = loanAmount
+        self.loanDuration = loanDuration
+        self.interestRate = interestRate
+        self.compoundPeriod = compoundPeriod
+        self.currentRepaid = currentRepaid
+        self.startTime = startTime
+        
     }
     
     init(loanAmount : Int, interestRate : Float, loanDuration : Int,  compoundPeriod : Int){

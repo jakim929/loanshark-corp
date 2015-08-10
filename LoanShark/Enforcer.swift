@@ -24,7 +24,7 @@ class Enforcer : NSObject{
         self.gender = gender
     }
    
-    //getters
+    //Getters
     
     func getName() -> String{
         return self.name

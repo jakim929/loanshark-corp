@@ -14,6 +14,8 @@
 		1ACE59621B7342180055FB2B /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACE59611B7342180055FB2B /* Random.swift */; };
 		1ACE59641B74B4B00055FB2B /* NegPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACE59631B74B4B00055FB2B /* NegPanelViewController.swift */; };
 		1ACE59661B7847300055FB2B /* Basic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACE59651B7847300055FB2B /* Basic.swift */; };
+		1ACE59681B7886820055FB2B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACE59671B7886820055FB2B /* Constants.swift */; };
+		1ACE596B1B789CDD0055FB2B /* Gamedata.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1ACE596A1B789CDD0055FB2B /* Gamedata.plist */; };
 		1AE64B841B6B633100956E45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64B831B6B633100956E45 /* AppDelegate.swift */; };
 		1AE64B861B6B633100956E45 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE64B851B6B633100956E45 /* ViewController.swift */; };
 		1AE64B891B6B633100956E45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AE64B871B6B633100956E45 /* Main.storyboard */; };
@@ -43,6 +45,8 @@
 		1ACE59611B7342180055FB2B /* Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
 		1ACE59631B74B4B00055FB2B /* NegPanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NegPanelViewController.swift; sourceTree = "<group>"; };
 		1ACE59651B7847300055FB2B /* Basic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Basic.swift; sourceTree = "<group>"; };
+		1ACE59671B7886820055FB2B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1ACE596A1B789CDD0055FB2B /* Gamedata.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Gamedata.plist; sourceTree = "<group>"; };
 		1AE64B7E1B6B633100956E45 /* LoanShark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoanShark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AE64B821B6B633100956E45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1AE64B831B6B633100956E45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +80,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1ACE59691B78990F0055FB2B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1ACE596A1B789CDD0055FB2B /* Gamedata.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		1AE64B751B6B633100956E45 = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +116,7 @@
 				1AE64B871B6B633100956E45 /* Main.storyboard */,
 				1AE64B8A1B6B633100956E45 /* Images.xcassets */,
 				1AE64B8C1B6B633100956E45 /* LaunchScreen.xib */,
+				1ACE59691B78990F0055FB2B /* Resources */,
 				1AE64B811B6B633100956E45 /* Supporting Files */,
 			);
 			path = LoanShark;
@@ -145,6 +158,7 @@
 				1AC602E01B7105CB00409106 /* Enforcer.swift */,
 				1ACE59611B7342180055FB2B /* Random.swift */,
 				1ACE59651B7847300055FB2B /* Basic.swift */,
+				1ACE59671B7886820055FB2B /* Constants.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -245,6 +259,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1ACE596B1B789CDD0055FB2B /* Gamedata.plist in Resources */,
 				1AE64B891B6B633100956E45 /* Main.storyboard in Resources */,
 				1AE64B8E1B6B633100956E45 /* LaunchScreen.xib in Resources */,
 				1AE64B8B1B6B633100956E45 /* Images.xcassets in Resources */,
@@ -272,6 +287,7 @@
 				1AE64B841B6B633100956E45 /* AppDelegate.swift in Sources */,
 				1AE64BA71B6B63C000956E45 /* Client.swift in Sources */,
 				1A188DF61B6C71100043DF23 /* Player.swift in Sources */,
+				1ACE59681B7886820055FB2B /* Constants.swift in Sources */,
 				1AC602E11B7105CB00409106 /* Enforcer.swift in Sources */,
 				1AE64BA91B6B63D200956E45 /* Loan.swift in Sources */,
 				1ACE59641B74B4B00055FB2B /* NegPanelViewController.swift in Sources */,

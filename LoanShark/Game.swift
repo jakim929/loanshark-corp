@@ -19,7 +19,7 @@ class Game : NSObject {
     var inputCount : Int = 0
     var inputExpected : Int = 0
     var inputArray : [String] = [String]()
-    var negotiationFinished : Bool = false
+    var clientsInScene : [Client] = [Client]()
     
     override init() {
         player = Player()
@@ -42,11 +42,63 @@ class Game : NSObject {
     func processNegotiation(negotiation : (Int,Float,Int,Int)){
         
     }
-/*
-    func acceptNegotiation() -> Loan{
-        return player.acceptOffer()
+    
+    func loadGameData(){
+        
+        var path = documentFilePath(fileName: "Gamedata.plist")
+        var gameData : NSDictionary? = NSDictionary(contentsOfFile: path)
+        // Load gamedata template from mainBundle if no saveFile exists
+        if gameData == nil {
+            var mainBundle = NSBundle.mainBundle()
+            path = mainBundle.pathForResource("Gamedata", ofType: "plist")!
+            gameData = NSDictionary(contentsOfFile: path)
+        }
+        
+        var playerData = gameData!["playerData"] as! [String : AnyObject]
+        
+        var playerName = playerData["name"] as! String
+        var playerGender = playerData["gender"] as! Bool
+        var playerRespectability = playerData["respectability"] as! Int
+        var playerThugness = playerData["thugness"] as! Int
+        var playerBalance = playerData["balance"] as! Int
+        
+        player.setPlayer(playerName, gender: playerGender, respectability: playerRespectability, thugness: playerThugness, balance: playerBalance
+        )
+        
+        var clientListData = gameData!["clientList"] as! [[String : AnyObject]]
+        
+        for clientData in clientListData {
+            var clientNumber = clientData["clientNumber"] as AnyObject? as! Int
+            var name = clientData["name"] as AnyObject? as! String
+            var creditRating = clientData["creditRating"] as AnyObject? as! Int
+            var netWorth = clientData["netWorth"] as AnyObject? as! Int
+            var pastExperience = clientData["pastExperience"] as AnyObject? as! Int
+            var anxietyRating = clientData["anxietyRating"] as AnyObject? as! Int
+            
+            var loanListData = clientData["loanList"] as! [[String : AnyObject]]
+            
+            var loanList = [Loan]()
+            
+            for loanData in loanListData {
+                var loanNumber = loanData["loanNumber"] as AnyObject? as! Int
+                var loanStatus = Status(rawValue: loanData["loanStatus"] as AnyObject? as! Int)
+                var loanAmount = loanData["loanAmount"] as AnyObject? as! Int
+                var interestRate = loanData["interestRate"] as AnyObject? as! Float
+                var loanDuration = loanData["loanDuration"] as AnyObject? as! Int
+                var compoundPeriod = loanData["compoundPeriod"] as AnyObject? as! Int
+                var currentRepaid = loanData["currentRepaid"] as AnyObject? as! Int
+                var startTime = loanData["startTime"] as AnyObject? as! CFAbsoluteTime
+                
+                var loan = Loan(loanNumber: loanNumber, loanStatus: loanStatus!, loanAmount: loanAmount, interestRate: interestRate, loanDuration: loanDuration, compoundPeriod: compoundPeriod, currentRepaid: currentRepaid, startTime: startTime)
+                loanList.append(loan)
+                player.loanLedger.append(loan)
+            }
+            var client = Client(clientNumber: clientNumber, name: name, creditRating: creditRating, netWorth: netWorth, pastExperience: pastExperience, anxietyRating: anxietyRating, loanList: loanList)
+            player.clientList.append(client)
+        }
+        
     }
-*/
+
     func processCommand(command : String)->String{
         var returnValue = ""
         if command == "create"{
@@ -63,7 +115,7 @@ class Game : NSObject {
             
             
         }else if command == "client"{
-            return createRandomClient()
+            return createRandomClient().description
             
         }else if command == "newoffer"{
             var portfolio = createPortfolio(player.currentClient.proposeLoan())
@@ -128,19 +180,42 @@ class Game : NSObject {
         
     }
     
-    func createRandomClient()->String{
+    func createRandomClient()->Client{
         player.clientList.append(Client(name: Random.returnRandomName(), creditRating: Random.simpleRandom(1 , max: 4), netWorth: Random.simpleRandomScaled(1000, max: 1000000, scale: 1000)))
-        return player.currentClient.clientDescription
+        return player.currentClient
     }
-    
-    
     
     func createPortfolio(loan : Loan)->Portfolio{
         player.addPortfolio(Portfolio(client: player.currentClient, loan: loan))
         return player.currentPortfolio
     }
     
-
+    func enterClient()->Client{
+        let client = createRandomClient()
+        clientsInScene.append(client)
+        return client
+    }
+    
+    func enterClient(enteringClient : Client)->Client{
+        clientsInScene.append(enteringClient)
+        return clientsInScene[clientsInScene.count-1]
+    }
+    
+    func exitClient(exitingClient : Client)->Bool{
+        if contains(clientsInScene, exitingClient){
+            clientsInScene = clientsInScene.filter( {$0 != exitingClient})
+            return true
+        }else{
+            return false
+        }
+    }
+    
+    func documentFilePath(#fileName: String) -> String {
+        var paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+        var documentsDirectory = paths[0] as! String
+        var path = documentsDirectory.stringByAppendingPathComponent(fileName)
+        return path
+    }
     
 
 

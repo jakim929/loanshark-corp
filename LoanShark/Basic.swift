@@ -7,20 +7,6 @@
 //
 
 import Foundation
-//Status label for loans
-    enum Status {
-        case Created
-        case Ongoing
-        case Paid
-        case Defaulted
-        case Rejected
-    }
-
-enum NegStatus {
-    case Negotiated
-    case Accepted
-    case Rejected
-}
 
     func convertGender(gender : Bool)->String{
         if gender == true{
