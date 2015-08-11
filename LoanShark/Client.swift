@@ -86,6 +86,13 @@ class Client : NSObject {
     }
 
 //Other functions
+    //For updating every frame
+    
+    func update(){
+        let currentAbsoluteTime = CFAbsoluteTimeGetCurrent()
+        
+    }
+    
     //For saving data
     func data() -> NSDictionary {
         var data = NSMutableDictionary()

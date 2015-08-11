@@ -7,19 +7,24 @@
 //
 
 import UIKit
+import SpriteKit
+
+
 
 class ViewController: UIViewController {
     
-    var currentGame : Game = Game()
-    var enterOffer : (Int, Float, Int, Int) = (0, 0.0, 0 , 0)
+    var currentGame : GameModel = GameModel()
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        var spriteView:SKView = self.view as! SKView
+        spriteView.showsDrawCount = true
+        spriteView.showsNodeCount = true
+        spriteView.showsFPS = true
+        
     }
-
-
 
     @IBOutlet weak var consoleOutput: UITextView!
     @IBOutlet weak var consoleField: UITextField!
@@ -55,6 +60,14 @@ class ViewController: UIViewController {
 
     }
     
+    override func viewWillAppear(animated: Bool) {
+        var gameScene:GameScene = GameScene(size: CGSizeMake(768, 1024))
+        gameScene.gameViewController = self
+        gameScene.currentGame = currentGame
+        var spriteView:SKView = self.view as! SKView
+        spriteView.presentScene(gameScene)
+    }
+    
     
     func showOffer(offer : (Int, Float, Int, Int), status : NegStatus){
         if status == .Negotiated{
@@ -72,7 +85,11 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
 
 }
+
+
+
+
 

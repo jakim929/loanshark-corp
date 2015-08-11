@@ -1,17 +1,14 @@
 //
-//  Game.swift
+//  GameModel.swift
 //  LoanShark
 //
-//  Created by Abdulrahman Jamjoom on 8/4/15.
+//  Created by James Kim on 8/11/15.
 //
-//*************************************************************
-
-// SPLIT INTO GameModel AND GameScene -> This Game class is no longer in use
+//
 
 import Foundation
-/*
 
-class Game : NSObject {
+class GameModel : NSObject {
     
     var player : Player
     
@@ -22,7 +19,9 @@ class Game : NSObject {
     var inputCount : Int = 0
     var inputExpected : Int = 0
     var inputArray : [String] = [String]()
-    var clientsInScene : [Client] = [Client]()
+    //var clientsInScene : [Client] = [Client]() //Only one client at a time for now
+    var clientInScene : Client?
+    
     
     override init() {
         player = Player()
@@ -33,7 +32,7 @@ class Game : NSObject {
     func newPlayer(name : String){
         player.changeName(name)
     }
-
+    
     func directInput(input : String) -> String{
         if receivingCommand == true{
             currentCommand = input
@@ -73,11 +72,11 @@ class Game : NSObject {
         }else if command == "save"{
             saveGameData()
             returnValue = "Game saved"
-        
+            
         }else if command == "load"{
             loadGameData()
             returnValue = "Game loaded"
-        
+            
         }else if command == "info"{
             
             returnValue = "\(player.name)\n\(player.balance)\n\nClients:\n"
@@ -90,7 +89,7 @@ class Game : NSObject {
             returnValue = player.currentClient.getName()
         }else if command == "clienttotal"{
             returnValue = String(player.clientList.count)
-        
+            
         }else if command == ""{
             returnValue = "Please enter a command"
         }
@@ -145,7 +144,7 @@ class Game : NSObject {
     }
     
     func handleNegotiation(incomingInput : (Int, Float, Int, Int)) -> Portfolio{
-    
+        
         return player.negotiateOffer(incomingInput)
         
     }
@@ -162,6 +161,16 @@ class Game : NSObject {
     
     func enterClient()->Client{
         let client = createRandomClient()
+        clientInScene = client
+        return clientInScene!
+    }
+    
+    func exitClient(){
+        clientInScene = nil
+    }
+ /* //Blocked out since we'll only deal with one client at a time right now
+    func enterClient()->Client{
+        let client = createRandomClient()
         clientsInScene.append(client)
         return client
     }
@@ -170,7 +179,7 @@ class Game : NSObject {
         clientsInScene.append(enteringClient)
         return clientsInScene[clientsInScene.count-1]
     }
-    
+
     func exitClient(exitingClient : Client)->Bool{
         if contains(clientsInScene, exitingClient){
             clientsInScene = clientsInScene.filter( {$0 != exitingClient})
@@ -179,7 +188,7 @@ class Game : NSObject {
             return false
         }
     }
-    
+*/
     func saveGameData() {
         var path = documentFilePath(fileName: "Gamedata.plist")
         
@@ -216,8 +225,7 @@ class Game : NSObject {
         var playerThugness = playerData["thugness"] as! Int
         var playerBalance = playerData["balance"] as! Int
         
-        player.setPlayer(playerName, gender: playerGender, respectability: playerRespectability, thugness: playerThugness, balance: playerBalance
-        )
+        player.setPlayer(playerName, gender: playerGender, respectability: playerRespectability, thugness: playerThugness, balance: playerBalance)
         
         var clientListData = gameData!["clientList"] as! [[String : AnyObject]]
         
@@ -252,7 +260,7 @@ class Game : NSObject {
         }
         
     }
-
+    
     
     func documentFilePath(#fileName: String) -> String {
         var paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
@@ -261,12 +269,12 @@ class Game : NSObject {
         return path
     }
     
-
-
+    
+    
     
     
 }
-*/
+
 
 
 
