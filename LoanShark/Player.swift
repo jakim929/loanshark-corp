@@ -46,6 +46,17 @@ public class Player : NSObject{
         return clientList[clientList.count-1]
     }
     
+    func data()->NSMutableDictionary{
+        var data = NSMutableDictionary()
+        data["name"] = self.name
+        data["gender"] = self.gender
+        data["respectability"] = self.respectability
+        data["thugness"] = self.thugness
+        data["balance"] = self.balance
+        
+        return data
+    }
+    
     func changeName(name : String){
         self.name = name
     }

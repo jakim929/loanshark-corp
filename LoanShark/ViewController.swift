@@ -32,6 +32,7 @@ class ViewController: UIViewController {
 
     @IBAction func sendInput(sender: AnyObject) {
         var input = consoleField.text
+        consoleField.text = ""
         
         if input == "newoffer"{
             consoleOutput.text = currentGame.directInput(input)
@@ -50,17 +51,19 @@ class ViewController: UIViewController {
         let offer = (amount!, rate, duration!, period!)
         var portfolio : Portfolio
         portfolio = currentGame.handleNegotiation(offer)
-        showOffer(portfolio.latestOffer, status : portfolio.currentLoanStatus)
+        showOffer(portfolio.latestOffer, status : portfolio.currentStatus)
 
     }
     
     
-    func showOffer(offer : (Int, Float, Int, Int), status : Int){
-        if status == 0{
+    func showOffer(offer : (Int, Float, Int, Int), status : NegStatus){
+        if status == .Negotiated{
             consoleOutput.text = "-Loan Negotiated- \nAmount: \(offer.0)\nRate: \(offer.1)\nDuration: \(offer.2)\nPeriod: \(offer.3)"
-        }else if status == 1{
-            consoleOutput.text = "-Loan Accepted- \nAmount: \(offer.0)\nRate: \(offer.1)\nDuration: \(offer.2)\nPeriod: \(offer.3)\nPlease enter your next command:"
+        }else if status == .Accepted{
+            consoleOutput.text = "-Loan Accepted Congratulations- \nAmount: \(offer.0)\nRate: \(offer.1)\nDuration: \(offer.2)\nPeriod: \(offer.3)\nPlease enter your next command:"
             
+        }else if status == .Rejected{
+                consoleOutput.text = "-Offer Rejected-"
         }
     }
     

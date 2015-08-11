@@ -12,20 +12,16 @@ class Loan : NSObject {
     
     //var client : Client
     var loanStatus = Status.Created //enum defined in Basic.swift
-    var loanNumber : Int
+    var loanNumber  = 0
     var loanAmount : Int
-    var loanDuration : Int
     var interestRate : Float = 0
+    var loanDuration : Int
+
     var compoundPeriod : Int = 0 // how often the interest is applied
     var currentRepaid = 0
     
     private var startTime : CFAbsoluteTime
-    
-    override init(){
-        //client = Client()
-        loanAmount = 0
-        loanDuration = 0
-    }
+
     
     init(loanNumber : Int, loanStatus : Status, loanAmount: Int, interestRate : Float, loanDuration : Int, compoundPeriod : Int, currentRepaid : Int, startTime : CFAbsoluteTime){
         
@@ -39,13 +35,25 @@ class Loan : NSObject {
         self.startTime = startTime
         
     }
-    
-    init(loanAmount : Int, interestRate : Float, loanDuration : Int,  compoundPeriod : Int){
-        //self.client = client
+
+    init(loanAmount : Int, interestRate : Float, loanDuration : Int,  compoundPeriod : Int, startTime : CFAbsoluteTime){
         self.loanAmount = loanAmount
         self.loanDuration = loanDuration
         self.interestRate = interestRate
         self.compoundPeriod = compoundPeriod
+        self.startTime = startTime
+    }
+    //for data saving
+    func data() -> NSMutableDictionary{
+        var data = NSMutableDictionary()
+        data["loanStatus"] = self.loanStatus.rawValue
+        data["loanNumber"] = self.loanNumber
+        data["loanAmount"] = self.loanAmount
+        data["interestRate"] = self.interestRate
+        data["loanDuration"] = self.loanDuration
+        data["compoundPeriod"] = self.compoundPeriod
+        data["startTime"] = self.startTime
+        return data
     }
     
     //Total payment expected after the loan duration
@@ -115,6 +123,7 @@ class Loan : NSObject {
     
     func approveLoan(approval : Bool) -> Loan{
         if approval == true {
+            self.startTime = CFAbsoluteTimeGetCurrent()
             self.loanStatus = .Ongoing
         }else{
             self.loanStatus = .Rejected

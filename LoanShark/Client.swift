@@ -13,11 +13,13 @@ class Client : NSObject {
     var clientNumber : Int = 1
     var name : String
     //var age : Int
-    var loanList = [Loan]()
+    
     var creditRating : Int
     var netWorth : Int
     var pastExperience : Int = 0
     var anxietyRating : Int = 0
+    
+    var loanList = [Loan]()
     //var personality : Int
     
     override init(){
@@ -51,16 +53,7 @@ class Client : NSObject {
     var clientDescription : String{
         return "Client Information\nName: \(name)\nCredit Rating: \(creditRating)\nNet Worth: \(netWorth)"
     }
-/*
-    init(clientNumber : Int, name : String, age : Int, currentLoan : Loan, creditRating : Int, netWorth : Int){
-        self.clientNumber = clientNumber
-        self.name = name
-        self.age = age
-        self.currentLoan = currentLoan
-        self.creditRating = creditRating
-        self.netWorth = netWorth
-    }
-*/
+
 //Getters
     
     func getClientNumber() -> Int{
@@ -93,6 +86,22 @@ class Client : NSObject {
     }
 
 //Other functions
+    //For saving data
+    func data() -> NSDictionary {
+        var data = NSMutableDictionary()
+        data["clientNumber"] = self.clientNumber
+        data["name"] = self.name
+        data["creditRating"] = self.creditRating
+        data["netWorth"] = self.netWorth
+        data["pastExperience"] = self.pastExperience
+        data["anxietyRating"] = self.anxietyRating
+        var loanData = [NSMutableDictionary]()
+        for loan in loanList {
+            loanData.append(loan.data())
+        }
+        data["loanList"] = loanData
+        return data
+    }
     
     func repayLoan(paymentAmount : Int){
         self.currentLoan.updateRepayment(paymentAmount)
@@ -108,7 +117,8 @@ class Client : NSObject {
         let rate = simpleRandomFloat(0.1, 0.4)
         let duration = simpleRandom(50, 100)
         let period = 10
-        loanList.append(Loan(loanAmount: amount, interestRate: rate, loanDuration: duration, compoundPeriod: period))
+        let startTime = CFAbsoluteTimeGetCurrent()
+        loanList.append(Loan(loanAmount: amount, interestRate: rate, loanDuration: duration, compoundPeriod: period, startTime: startTime))
         return currentLoan
     }
     
