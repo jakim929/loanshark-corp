@@ -41,9 +41,9 @@ class GameViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        var helloScene:HelloScene = HelloScene(size: CGSizeMake(768, 1024))
+        var testGameScene:TestGameScene = TestGameScene(size: CGSizeMake(768, 1024))
         var spriteView:SKView = self.view as! SKView
-        spriteView.presentScene(helloScene)
+        spriteView.presentScene(testGameScene)
     }
     
     override func shouldAutorotate() -> Bool {
