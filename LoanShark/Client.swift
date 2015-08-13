@@ -18,6 +18,7 @@ class Client : NSObject {
     var netWorth : Int
     var pastExperience : Int = 0
     var anxietyRating : Int = 0
+    var eagerness : Int = 0
     
     var loanList = [Loan]()
     //var personality : Int

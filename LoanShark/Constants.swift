@@ -41,4 +41,24 @@ enum NegStatus : Int {
 
 }
 
+enum CubicleClass : Int {
+    case Basic
+    case Professional
+    case Luxurious
+}
+
+enum EducationLevel : Int {
+    case MiddleSchoolGrad
+    case HighSchoolGrad
+    case CollegeGrad
+    case BusinessSchoolGrad
+    case LawSchoolGrad
+    
+}
+
+enum Gender : Int {
+    case Male
+    case Female
+}
+
 let TimeScale: Float = 1

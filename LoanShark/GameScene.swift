@@ -39,7 +39,7 @@ class GameScene : SKScene {
         let absoluteTimeNow = CFAbsoluteTimeGetCurrent()
         if currentGame.clientInScene == nil && absoluteTimeNow - timeOfLastClient > timeTillNextClient{
             let client = currentGame.enterClient()
-            gameViewController.consoleOutput.text = "A client has entered. \n\n" + client.clientDescription
+            gameViewController.consoleOutput.text = "A client has entered. \n\n" + client.clientDescription + "\nHe would like a loan. Do you accept?"
             
         }
         
